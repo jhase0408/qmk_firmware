@@ -969,6 +969,7 @@ void rgblight_update_sync(rgblight_syncinfo_t *syncinfo, bool write_to_eeprom) {
 #    ifdef RGBLIGHT_LAYERS
     if (syncinfo->status.change_flags & RGBLIGHT_STATUS_CHANGE_LAYERS) {
         rgblight_status.enabled_layer_mask = syncinfo->status.enabled_layer_mask;
+        deferred_set_layer_state = true;
     }
 #    endif
     if (syncinfo->status.change_flags & RGBLIGHT_STATUS_CHANGE_MODE) {
